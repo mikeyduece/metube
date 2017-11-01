@@ -2,6 +2,12 @@ class User < ApplicationRecord
   has_many :playlists
   has_many :videos, through: :playlists
 
+  validates :name, uniqueness: true
+  validates :first_name, uniqueness: true
+  validates :last_name, uniqueness: true
+  validates :email, uniqueness: true
+  validates :uid, uniqueness: true
+
   def self.from_omniauth(auth)
     user = User.where(uid: auth["uid"]).first
     if user && user.token != auth["credentials"]["token"]
