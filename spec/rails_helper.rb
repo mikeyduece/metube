@@ -12,6 +12,26 @@ VCR.configure do |config|
   config.cassette_library_dir = "spec/cassettes"
   config.hook_into :webmock
 end
+
+def stub_omniauth
+  # first, set OmniAuth to run in test mode
+  OmniAuth.config.test_mode = true
+  # then, provide a set of fake oauth data that
+  # omniauth will use when a user tries to authenticate:
+  OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
+     provider: "google_oauth2",
+          uid: "25080717",
+         info: {
+            email: "mike.heft@gmail.com",
+             name: "Mike Heft",
+            image: "https://lh6.googleusercontent.com/-2k_pYnf2BNo/AAAAAAAAAAI/AAAAAAAAAJ0/pJ9DyCck1zE/photo.jpg"
+          },
+  credentials: {
+          token: ENV['google_test']
+               }
+    })
+end
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -40,10 +60,19 @@ end
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+DatabaseCleaner.strategy = :truncation
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
+  config.before(:all) do
+    DatabaseCleaner.clean
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.

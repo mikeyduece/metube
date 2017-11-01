@@ -32,7 +32,7 @@ gem 'faraday'
 gem 'figaro'
 gem 'yt', '~> 0.28.0'
 gem 'autoprefixer-rails'
-gem 'omniauth-google-oauth2'
+gem "omniauth-google-oauth2"
 gem 'rails-observers'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
