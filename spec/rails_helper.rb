@@ -24,7 +24,7 @@ def stub_omniauth
          info: {
             email: "mike.heft@gmail.com",
              name: "Mike Heft",
-            image: "https://lh6.googleusercontent.com/-2k_pYnf2BNo/AAAAAAAAAAI/AAAAAAAAAJ0/pJ9DyCck1zE/photo.jpg"
+            image: 'https://avatars3.githubusercontent.com/u/25080717?s=460&v=4'
           },
   credentials: {
           token: ENV['google_test']
