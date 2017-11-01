@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'User' do
-  xscenario 'can log in with oauth' do
+  scenario 'can log in with oauth' do
     stub_omniauth
 
     visit root_path

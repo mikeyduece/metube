@@ -6,14 +6,7 @@ feature 'User' do
 
     visit user_path(user.id)
 
-    within('.play_list') do
-      expect(page).to have_content('.list_name')
-    end
-
-    within('.favs') do
-      expect(page).to have_content('.video_img')
-    end
-
+    expect(page).to have_content("#{user.first_name}'s Playlists")
     expect(page).to have_content(user.image)
   end
 end

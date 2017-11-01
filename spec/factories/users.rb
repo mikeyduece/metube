@@ -8,7 +8,5 @@ FactoryBot.define do
     image "MyString"
     token "MyString"
     token_expiration "MyString"
-    playlist nil
-    video nil
   end
 end
