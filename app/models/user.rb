@@ -3,7 +3,6 @@ class User < ApplicationRecord
   has_many :videos, through: :playlists
 
   def self.from_omniauth(auth)
-    require 'pry'; binding.pry
     user = User.where(uid: auth["uid"]).first
     if user && user.token != auth["credentials"]["token"]
       user.token = auth["credentials"]["token"]

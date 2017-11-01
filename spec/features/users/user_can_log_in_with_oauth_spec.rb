@@ -5,9 +5,12 @@ feature 'User' do
     stub_omniauth
 
     visit root_path
-    click_button 'Sign in with Google'
-
-    expect(current_path).to be(user_path(User.last.uid))
+    within '.loginBtn' do
+      VCR.use_cassette('spec/features/users/user_can_log_in_with_oauth_spec.rb') do
+        click_on 'Sign in with Google'
+      end
+    end
+    expect(current_path).to eq(user_path(User.last.uid))
 
   end
 end
