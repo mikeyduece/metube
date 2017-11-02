@@ -24,7 +24,7 @@
                   <%= form_tag :videos, method: :get, class: "search-box" do %>
                     <div class="form-group search-field">
                       <%= text_field_tag :q, nil, placeholder: "Search", class: "form-control" %>
-                      <%= button_tag(type: 'submit', class: "icon glyphicon glypicon-search") do %>
+                      <%= button_tag(type: 'submit',id: 'submit', class: "icon glyphicon glypicon-search") do %>
                         <i class='icon glyphicon glyphicon-search'></i>
                       <% end %>
                     </div>

@@ -12,7 +12,6 @@ class YoutubeService
 
   def get_url(url)
     response = @conn.get(url)
-    require 'pry'; binding.pry
     JSON.parse(response.body, symbolize_names: true)
   end
 

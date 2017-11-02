@@ -3,6 +3,6 @@ class Video < ApplicationRecord
   has_many :users, through: :playlists
 
   def self.search_videos(vid)
-    YoutubeService.search_videos(vid)
+    VideoService.search_videos(vid)
   end
 end
