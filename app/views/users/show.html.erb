@@ -1,7 +1,7 @@
 
 <div class='container'>
   <div class='row'>
-    <div class='col-md-1'>
+    <div class='col-md-3'>
       <h3><%= @user.first_name %>'s Playlists</h3>
       <% @user.playlists.each do |playlist| %>
         <li<%= link_to playlist.name, playlist_path(playlist.id),

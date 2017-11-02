@@ -16,9 +16,41 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+div{
+  border-style: solid;
+  border-color: red;
+  border-width: thin;
+}
+
+// .img-sample {
+//   width: 100%;
+// }
+.col-md-4 {
+  margin-bottom: 5px;
+}
+
+.row {
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.vid_title {
+  height: 50px;
+  text-align: center;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-weight: bold;
+}
+
+.vid_desc{
+  height: 70px;
+}
+
 #userImage {
   max-width: 3em;
-  max-height: 3em
+  max-height: 3em;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .search-box {
@@ -74,5 +106,5 @@ input:focus ~ .icon {
 
 .img-sample {
   max-height: 50vmin;
-  max-width: 100%;
+  max-width: 50vmax;
 }

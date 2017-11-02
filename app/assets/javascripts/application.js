@@ -15,4 +15,9 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
-import { apiKey } from './helper.js'
+// import { apiKey } from './helper.js'
+$(function($) {
+  $(document).on('click', '.favorite', function(event) {
+    $(this).find('.glyphicon').toggleClass('red').toggleClass('glyphicon-heart-empty glyphicon-heart');
+  });
+});

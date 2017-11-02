@@ -1,17 +1,20 @@
-<div class="row">
+<div class="row page_margin">
   <% @videos.each do |video| %>
-    <div class="col-xs-4">
-        <ul class='vid_sample'>
-          <li class='vid_title'><%= video.title %></li>
-          <li class='vid_image'>
+    <div class="col-md-4">
+        <div class='vid_sample'>
+          <div class='vid_title'><%= video.title %></div>
+          <div class='vid_image'>
             <% if video.img_high %>
-              <%= image_tag video.img_high, class: 'img-sample' %>
+              <%= image_tag video.img_high, class: 'img-responsive img-sample' %>
             <% else %>
-              <%= image_tag video.img_default, class: 'img-sample' %>
+              <%= image_tag video.img_default, class: 'img-responsive img-sample' %>
             <% end %>
-          </li>
-          <li class='vid_desc'><%= video.description %></li>
-        </ul>
+          </div>
+          <div class='vid_desc'><%= video.description %></div>
+          <a href="#" class="favorite">
+            <span class="glyphicon glyphicon-heart-empty"></span>
+          </a>
+        </div>
     </div>
   <% end %>
 </div>
