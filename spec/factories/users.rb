@@ -1,14 +1,12 @@
 FactoryBot.define do
   factory :user do
-    uid "MyString"
-    name "MyString"
-    email "MyString"
-    first_name "MyString"
-    last_name "MyString"
-    image "MyString"
+    sequence(:uid) {|n| "#{n}Uid"}
+    sequence(:name) {|n| "#{n}name"}
+    sequence(:email) {|n| "#{n}email"}
+    sequence(:first_name) {|n| "#{n}first_name"}
+    sequence(:last_name) {|n| "#{n}last_name"}
+    image "https://vignette.wikia.nocookie.net/animal-jam-clans-1/images/6/62/Happy-birthday-rick-astley.jpg/revision/latest?cb=20160825005957"
     token "MyString"
     token_expiration "MyString"
-    playlist nil
-    video nil
   end
 end
