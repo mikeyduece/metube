@@ -71,3 +71,8 @@ input:focus ~ .icon {
   cursor: pointer;
   opacity: .5;
 }
+
+.img-sample {
+  max-height: 50vmin;
+  max-width: 50vmin;
+}

@@ -1,19 +1,17 @@
 <div class="row">
   <% @videos.each do |video| %>
-    <div class="col-xs-3">
-      <div class="clearfix visible-xs">
+    <div class="col-xs-4">
         <ul class='vid_sample'>
           <li class='vid_title'><%= video.title %></li>
           <li class='vid_image'>
             <% if video.img_high %>
-              <%= image_tag video.img_high %>
+              <%= image_tag video.img_high, class: 'img-sample' %>
             <% else %>
-              <%= image_tag video.img_default %>
+              <%= image_tag video.img_default, class: 'img-sample' %>
             <% end %>
           </li>
           <li class='vid_desc'><%= video.description %></li>
         </ul>
-      </div>
     </div>
   <% end %>
 </div>
