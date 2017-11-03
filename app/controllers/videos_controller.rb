@@ -4,10 +4,14 @@ class VideosController < ApplicationController
     @videos = Video.search_videos(params[:q])
   end
 
+  def new
+    @video = Video.new
+  end
+
   def create
-    video = VideoService.add_favorite(vid_params)
-    require 'pry'; binding.pry
-    current_user.favorites << video
+    video = VideoService.add_favorite(attrs)
+    favorite = Favorite.make_fav(current_user.id, video.id)
+    current_user.favorites << favorite
   end
 
   private
@@ -25,6 +29,6 @@ class VideosController < ApplicationController
     end
 
     def vid_params
-      params.fetch(:video, {}).permit(:etag, :video_id, :img_high, :img_default, :title, :published_at, :description)
+      params.require(:video).permit(:etag, :video_id, :img_high, :img_default, :title, :published_at, :description)
     end
 end

@@ -4,7 +4,6 @@ class VideoService
               :published_at, :description
 
   def initialize(attrs)
-    require 'pry'; binding.pry
     @etag         = attrs[:etag]
     @video_id     = attrs[:id][:videoId]
     @img_high     = attrs[:snippet][:thumbnails][:high][:url]
@@ -17,7 +16,11 @@ class VideoService
   def self.search_videos(vid)
     vids = YoutubeService.search_videos(vid)
     vids[:items].map do |attrs|
-      VideoService.new(attrs)
+      if attrs[:id][:videoId] == ""
+        nil
+      else
+        VideoService.new(attrs)
+      end
     end
   end
 
