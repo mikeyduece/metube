@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   root to: 'welcome#index'
 
+  get 'favorites/:video_id/update', to: 'favorites#update', as: 'favorites_update'
   resources :users, only: [:show]
   resources :playlists
-  resources :favorites
+  resources :favorites, except: [:update, :destroy]
   resources :videos
 
   delete 'logout', to: 'sessions#destroy'

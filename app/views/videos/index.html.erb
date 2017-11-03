@@ -11,9 +11,18 @@
             <% end %>
           </div>
           <div class='vid_desc'><%= video.description %></div>
-          <div>
-            <%= link_to 'Favorite', favorite_path(video.add_vid), method: :patch %>
-          </div>
+          <%= form_tag favorites_update_path("#{video.video_id}") do %>
+            <div>
+              <%= hidden_field_tag :etag, video.etag %>
+              <%= hidden_field_tag :video_id, video.video_id %>
+              <%= hidden_field_tag :img_high, video.img_high%>
+              <%= hidden_field_tag :img_default, video.img_default %>
+              <%= hidden_field_tag :title, video.title %>
+              <%= hidden_field_tag :published_at, video.published_at %>
+              <%= hidden_field_tag :description, video.description %>
+              <%= submit_tag 'Favorite' %>
+            </div>
+          <% end %>
         </div>
     </div>
   <% end %>
