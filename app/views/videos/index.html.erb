@@ -11,7 +11,7 @@
             <% end %>
           </div>
           <div class='vid_desc'><%= video.description %></div>
-          <%= form_tag favorites_update_path("#{video.video_id}") do %>
+          <%= form_tag :videos, {action: 'update'} do %>
             <div>
               <%= hidden_field_tag :etag, video.etag %>
               <%= hidden_field_tag :video_id, video.video_id %>
