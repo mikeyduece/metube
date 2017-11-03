@@ -1,18 +1,19 @@
 <div class="row page_margin">
   <% @videos.each do |video| %>
     <div class="col-md-4">
-        <div class='vid_sample'>
-          <div class='vid_title'><%= video.title %></div>
-          <div class='vid_image'>
+      <div class='vid_sample'>
+        <div class='vid_title'><%= video.title %></div>
+        <div class='vid_image'>
             <% if video.img_high %>
               <%= image_tag video.img_high, class: 'img-responsive img-sample' %>
             <% else %>
               <%= image_tag video.img_default, class: 'img-responsive img-sample' %>
             <% end %>
-          </div>
-          <div class='vid_desc'><%= video.description %></div>
-          <%= form_tag :videos, {action: 'create'} do %>
-            <div>
+        </div>
+        <div class='vid_desc'><%= video.description %></div>
+        <%= form_tag :videos, {action: 'create'} do %>
+          <div class='row'>
+            <div class='col-sm-12'>
               <%= hidden_field_tag :etag, video.etag %>
               <%= hidden_field_tag :video_id, video.video_id %>
               <%= hidden_field_tag :img_high, video.img_high%>
@@ -20,10 +21,15 @@
               <%= hidden_field_tag :title, video.title %>
               <%= hidden_field_tag :published_at, video.published_at %>
               <%= hidden_field_tag :description, video.description %>
-              <%= submit_tag 'Favorite' %>
+              <%= button_tag type: 'submit', class: "glyphicon glyphicon-heart-empty" do %>
+              <% end %>
             </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
+        <%= form_tag :playlists, {action: 'update'} do %>
+          <%= collection_select :playlist_id, :id, current_user.playlists, :id, :name  %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>
