@@ -11,9 +11,9 @@
             <% end %>
           </div>
           <div class='vid_desc'><%= video.description %></div>
-          <a href="#" class="favorite">
-            <span class="glyphicon glyphicon-heart-empty"></span>
-          </a>
+          <div>
+            <%= link_to 'Favorite', favorite_path(video.add_vid), method: :patch %>
+          </div>
         </div>
     </div>
   <% end %>

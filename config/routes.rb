@@ -2,9 +2,8 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
 
   resources :users, only: [:show]
-  namespace :users do
-    resources :playlists
-  end
+  resources :playlists
+  resources :favorites
   resources :videos
 
   delete 'logout', to: 'sessions#destroy'

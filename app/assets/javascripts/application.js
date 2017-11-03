@@ -10,14 +10,15 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery_ujs
 //= require rails-ujs
 //= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
 // import { apiKey } from './helper.js'
-$(function($) {
-  $(document).on('click', '.favorite', function(event) {
-    $(this).find('.glyphicon').toggleClass('red').toggleClass('glyphicon-heart-empty glyphicon-heart');
-  });
-});
+// $(function($) {
+//   $(document).on('click', '#favorite', function(event) {
+//     $(this).find('i').css('color','red').toggleClass('glyphicon-heart-empty').toggleClass('glyphicon-heart');
+//   });
+// });
