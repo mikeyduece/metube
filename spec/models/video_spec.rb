@@ -1,5 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Video, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it {should validate_uniqueness_of :video_id}
+  it {should validate_presence_of   :video_id}
 end

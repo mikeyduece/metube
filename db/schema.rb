@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171102125534) do
+ActiveRecord::Schema.define(version: 20171104201240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "video_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+    t.index ["video_id"], name: "index_favorites_on_video_id"
+  end
 
   create_table "playlists", force: :cascade do |t|
     t.bigint "user_id"
@@ -21,6 +30,7 @@ ActiveRecord::Schema.define(version: 20171102125534) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "yt"
     t.index ["user_id"], name: "index_playlists_on_user_id"
     t.index ["video_id"], name: "index_playlists_on_video_id"
   end
@@ -40,7 +50,7 @@ ActiveRecord::Schema.define(version: 20171102125534) do
 
   create_table "videos", force: :cascade do |t|
     t.string "etag"
-    t.string "videoId"
+    t.string "video_id"
     t.string "img_default"
     t.string "img_high"
     t.string "title"
@@ -50,6 +60,8 @@ ActiveRecord::Schema.define(version: 20171102125534) do
     t.string "description"
   end
 
+  add_foreign_key "favorites", "users"
+  add_foreign_key "favorites", "videos"
   add_foreign_key "playlists", "users"
   add_foreign_key "playlists", "videos"
 end

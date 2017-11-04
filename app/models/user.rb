@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :playlists
   has_many :videos, through: :playlists
+  has_many :favorites
+  has_many :videos, through: :favorites
 
   validates :name, uniqueness: true
   validates :first_name, uniqueness: true
