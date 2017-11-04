@@ -9,7 +9,7 @@ class VideosController < ApplicationController
   end
 
   def create
-    video = VideoService.add_favorite(attrs)
+    video = VideoService.add_video(attrs)
     favorite = Favorite.make_fav(current_user.id, video.id)
     current_user.favorites << favorite
   end

@@ -24,7 +24,7 @@ class VideoService
     end
   end
 
-  def self.add_favorite(attrs)
+  def self.add_video(attrs)
     video = Video.where(video_id: attrs[:video_id]).first
     if video && video.etag != attrs[:etag]
       video.etag = attrs[:etag]
@@ -42,22 +42,22 @@ class VideoService
     video
   end
 
-  def self.make_playlist_vid(params)
-    video = Video.where(video_id: params[:video_id]).first
-    if video && video.etag != params[:etag]
-      video.etag = params[:etag]
-      video.save
-    elsif video.nil?
-      video = Video.create(etag:        params[:etag],
-                          video_id:     params[:video_id],
-                          img_high:     params[:img_high],
-                          img_default:  params[:image_default],
-                          title:        params[:title],
-                          published_at: params[:published_at],
-                          description:  params[:description]
-                          )
-    end
-    video
-
-  end
+  # def self.make_playlist_vid(params)
+  #   video = Video.where(video_id: params[:video_id]).first
+  #   if video && video.etag != params[:etag]
+  #     video.etag = params[:etag]
+  #     video.save
+  #   elsif video.nil?
+  #     video = Video.create(etag:        params[:etag],
+  #                         video_id:     params[:video_id],
+  #                         img_high:     params[:img_high],
+  #                         img_default:  params[:image_default],
+  #                         title:        params[:title],
+  #                         published_at: params[:published_at],
+  #                         description:  params[:description]
+  #                         )
+  #   end
+  #   video
+  # end
+  #
 end
