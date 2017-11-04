@@ -1,0 +1,11 @@
+<%= form_tag :playlists, {action: 'post', controller: 'playlists'} do %>
+  <%= hidden_field_tag params['etag'] %>
+  <%= hidden_field_tag params['video_id'] %>
+  <%= hidden_field_tag params['img_high'] %>
+  <%= hidden_field_tag params['img_default'] %>
+  <%= hidden_field_tag params['title'] %>
+  <%= hidden_field_tag params['published_at'] %>
+  <%= hidden_field_tag params['description'] %>
+<% require 'pry'; binding.pry %>
+  <%= text_field_tag :name %>
+<% end %>

@@ -2,7 +2,9 @@
   <% @videos.each do |video| %>
     <div class="col-md-4">
       <div class='vid_sample'>
+
         <div class='vid_title'><%= video.title %></div>
+
         <div class='vid_image'>
             <% if video.img_high %>
               <%= image_tag video.img_high, class: 'img-responsive img-sample' %>
@@ -10,7 +12,9 @@
               <%= image_tag video.img_default, class: 'img-responsive img-sample' %>
             <% end %>
         </div>
+
         <div class='vid_desc'><%= video.description %></div>
+
         <%= form_tag :videos, {action: 'create'} do %>
           <div class='row'>
             <div class='col-sm-12'>
@@ -26,9 +30,14 @@
             </div>
           </div>
         <% end %>
-        <%= form_tag :playlists, {action: 'update'} do %>
-          <%= collection_select :playlist_id, :id, current_user.playlists, :id, :name  %>
-        <% end %>
+
+          <%= form_tag :playlists, {action: 'update'} do %>
+            <%= collection_select :playlist, :name, current_user.playlists, :id, :name, class: 'dropdown-item'  %>
+            <%= link_to 'Create Playlist', new_playlist_path(etag: video.etag, video_id: video.video_id, user_id: current_user.id,
+                                                             img_high: video.img_high, img_default: video.img_default,
+                                                             title: video.title, description: video.description), class: 'dropdown-item' %>
+          <% end %>
+
       </div>
     </div>
   <% end %>
