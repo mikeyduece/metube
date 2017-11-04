@@ -1,5 +1,10 @@
 <%= form_tag :playlists, {action: 'post', controller: 'playlists'} do %>
   <%= hidden_field_tag :video_id, params['video_id'] %>
+  <%= hidden_field_tag :title, params['title'] %>
+  <%= hidden_field_tag :etag, params['etag'] %>
+  <%= hidden_field_tag :description, params['description'] %>
+  <%= hidden_field_tag :img_high, params['img_high'] %>
+  <%= hidden_field_tag :img_default, params['img_default'] %>
   <%= hidden_field_tag :user_id, params['user_id'] %>
   <%= text_field_tag :name, nil,  placeholder: 'Playlist Name' %>
   <%= submit_tag 'Create' %>

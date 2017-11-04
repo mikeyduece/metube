@@ -30,8 +30,8 @@ class VideoService
       video.etag = attrs[:etag]
       video.save
     elsif video.nil?
-      video = Video.create(etag:       attrs[:etag],
-                          video_id:      attrs[:video_id],
+      video = Video.create(etag:        attrs[:etag],
+                          video_id:     attrs[:video_id],
                           img_high:     attrs[:img_high],
                           img_default:  attrs[:image_default],
                           title:        attrs[:title],
@@ -42,4 +42,22 @@ class VideoService
     video
   end
 
+  def self.make_playlist_vid(params)
+    video = Video.where(video_id: params[:video_id]).first
+    if video && video.etag != params[:etag]
+      video.etag = params[:etag]
+      video.save
+    elsif video.nil?
+      video = Video.create(etag:        params[:etag],
+                          video_id:     params[:video_id],
+                          img_high:     params[:img_high],
+                          img_default:  params[:image_default],
+                          title:        params[:title],
+                          published_at: params[:published_at],
+                          description:  params[:description]
+                          )
+    end
+    video
+
+  end
 end

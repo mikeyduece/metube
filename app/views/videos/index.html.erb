@@ -33,7 +33,9 @@
 
           <%= form_tag :playlists, {action: 'update'} do %>
             <%= collection_select :playlist, :name, current_user.playlists, :id, :name, class: 'dropdown-item'  %>
-            <%= link_to 'Create Playlist', new_playlist_path(video_id: video.video_id, user_id: current_user.id,), class: 'dropdown-item' %>
+            <%= link_to 'Create Playlist', new_playlist_path(etag: video.etag, video_id: video.video_id, user_id: current_user.id,
+                                                             img_high: video.img_high, img_default: video.img_default,
+                                                             title: video.title, description: video.description), class: 'dropdown-item' %>
           <% end %>
 
       </div>
