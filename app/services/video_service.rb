@@ -16,11 +16,7 @@ class VideoService
   def self.search_videos(vid)
     vids = YoutubeService.search_videos(vid)
     vids[:items].map do |attrs|
-      if attrs[:id][:videoId] == ""
-        nil
-      else
-        VideoService.new(attrs)
-      end
+      attrs[:id][:videoId] == "" ? nil : VideoService.new(attrs)
     end
   end
 
@@ -41,23 +37,4 @@ class VideoService
     end
     video
   end
-
-  # def self.make_playlist_vid(params)
-  #   video = Video.where(video_id: params[:video_id]).first
-  #   if video && video.etag != params[:etag]
-  #     video.etag = params[:etag]
-  #     video.save
-  #   elsif video.nil?
-  #     video = Video.create(etag:        params[:etag],
-  #                         video_id:     params[:video_id],
-  #                         img_high:     params[:img_high],
-  #                         img_default:  params[:image_default],
-  #                         title:        params[:title],
-  #                         published_at: params[:published_at],
-  #                         description:  params[:description]
-  #                         )
-  #   end
-  #   video
-  # end
-  #
 end
