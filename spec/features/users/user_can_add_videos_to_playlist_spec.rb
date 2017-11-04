@@ -12,7 +12,6 @@ describe 'User' do
       click_on('submit')
       click_on('Create Playlist', match: :first)
 
-      save_and_open_page
       expect(current_path).to eq(new_playlist_path)
 
       fill_in('Playlist Name', with: 'Best Show Ever')

@@ -7,4 +7,5 @@ class PlaylistsController < ApplicationController
   def create
     @playlist = Playlist.make_playlist(params)
   end
+
 end
