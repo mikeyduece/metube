@@ -26,4 +26,14 @@ class User < ApplicationRecord
     end
     user
   end
+
+  def grouped_lists
+    playlists.group_by(&:name)
+  end
+
+  def playlist_videos
+    grouped_lists.each_pair do |name, playlists|
+      playlists.map! {|playlist| Video.find(playlist.video_id)}
+    end
+  end
 end
