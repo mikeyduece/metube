@@ -3,7 +3,6 @@ class Playlist < ApplicationRecord
   belongs_to :video, optional: true
 
   def self.add_to_playlist(video, user, name)
-    require 'pry'; binding.pry
     playlist = Playlist.where(yt: video.video_id).first
     if playlist
       nil
