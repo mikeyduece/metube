@@ -39,10 +39,19 @@ describe 'User' do
       fill_in('Playlist Name', with: 'Best Show Ever')
       click_on('Create')
 
-      fill_in('q', with: 'firefly')
+      fill_in('q', with: 'bjj')
       click_on('submit')
 
       expect(page).to have_select('playlist_name', options: [user.playlists[0].name])
+      expect(user.playlists.count).to eq(1)
+
+      within('#playlist_name', match: :first) do
+        select('Best Show Ever')
+      end
+      click_on('Add', match: :first)
+
+      expect(user.playlists.count).to eq(2)
+      expect(user.playlists.last.name).to eq('Best Show Ever')
     end
   end
 end
