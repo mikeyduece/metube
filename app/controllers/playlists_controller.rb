@@ -5,10 +5,7 @@ class PlaylistsController < ApplicationController
   end
 
   def create
-    if params['playlist']['name']
-      require 'pry'; binding.pry
-      params[:name] = params['playlist']['name']
-    end
+    params[:name] = params['playlist']['name'] if params['playlist']['name']
     require 'pry'; binding.pry
     video = VideoService.add_video(params)
     playlist_video = Playlist.add_to_playlist(video, params[:user_id], params[:name])
