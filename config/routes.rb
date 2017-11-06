@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'favorites/:video_id/update', to: 'favorites#update', as: 'favorites_update'
   resources :users, only: [:show]
   resources :playlists
-  resources :favorites, except: [:update, :destroy]
+  resources :favorites
   resources :videos
 
   delete 'logout', to: 'sessions#destroy'

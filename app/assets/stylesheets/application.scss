@@ -16,31 +16,44 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+html, body {
+  background-color: black;
+  padding: 0;
+}
+
 div{
   border-style: solid;
   border-color: red;
   border-width: thin;
+  background-color: black;
 }
 
-// .img-sample {
-//   width: 100%;
-// }
+.img-sample {
+  width: 100%;
+}
+
 .col-md-4 {
   margin-bottom: 5px;
 }
 
-.row {
-  margin-left: 3%;
-  margin-right: 3%;
-}
+// .card {
+//   border-style: solid;
+//   border-color: red;
+//   border-width: thin;
+// }
 
-.vid_title {
-  height: 50px;
-  text-align: center;
-  padding-left: 5%;
-  padding-right: 5%;
-  font-weight: bold;
-}
+// .row {
+//   margin-left: 3%;
+//   margin-right: 3%;
+// }
+
+// .vid_title {
+//   height: 50px;
+//   text-align: center;
+//   padding-left: 5%;
+//   padding-right: 5%;
+//   font-weight: bold;
+// }
 
 .vid_desc{
   height: 70px;
@@ -51,6 +64,7 @@ div{
   max-height: 3em;
   display: inline-block;
   vertical-align: middle;
+  padding-top: 0.75em;
 }
 
 .search-box {
@@ -104,13 +118,32 @@ input:focus ~ .icon {
   opacity: .5;
 }
 
-.img-sample {
-  max-height: 50vmin;
-  max-width: 50vmax;
-}
+// .img-sample {
+//   max-height: 50vmin;
+//   max-width: 50vmax;
+// }
 
 .heart-frame {
   border-color: transparent;
   background-color: transparent;
+}
+
+.card-img-top .img-responsive {
+  max-width: 10vw;
+}
+
+.card-subtitle {
+  height: 8vmax;
+  overflow-y: scroll;
+  font-size: 1.5vw;
+}
+
+.card-title {
+  font-size: 2vw;
+  color: white;
+}
+
+.landing-bg {
+  background: url(https://assets.nflxext.com/ffe/siteui/vlv3/5e3955d1-a2b3-4753-bff2-875bf84330fa/412c42ad-ce5f-4c66-ad9f-3f63cab49b22/US-en-20171030-popsignuptwoweeks-perspective_alpha_website_small.jpg)
 }
 
