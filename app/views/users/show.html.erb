@@ -1,11 +1,16 @@
-
-<div class='navbar navbar-inverse navbar-fixed-left'>
-  <%= link_to 'Home', user_path(current_user.id), class: 'navbar-brand' %>
-  <ul class='nav navbar-nav'>
-    <h3><%= @user.first_name %>'s Playlists</h3>
-    <% @user.playlist_videos.each do |name, playlist| %>
-      <li><%= link_to name, playlist_path(name),
-        class: 'play_list' %></li>
-    <% end %>
+<nav>
+  <ul>
+    <li class="current"><%= link_to 'Home', user_path(current_user) %></li>
+    <li class='dropdown'><a href="#"><i class="fa fa-fw fa-plus"></i>Playlists
+        <span class='caret'></span></a>
+    <ul class='dropdown-menu' role='menu'>
+      <li class='dropdown-header'>Your Playlists</li>
+      <% current_user.playlist_videos.keys.each do |name| %>
+        <li><%= link_to name, playlist_path(name) %></li>
+      <% end %>
+    </ul></li>
+    <li><a href="">Blog</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
   </ul>
-</div>
+</nav>
