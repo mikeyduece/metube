@@ -1,12 +1,11 @@
 
-<div class='container'>
-  <div class='row'>
-    <div class='col-md-3'>
-      <h3><%= @user.first_name %>'s Playlists</h3>
-      <% @user.playlists.each do |playlist| %>
-        <li<%= link_to playlist.name, playlist_path(playlist.id),
-          class: 'play_list' %>></li>
-      <% end %>
-    </div>
-  </div>
+<div class='navbar navbar-inverse navbar-fixed-left'>
+  <%= link_to 'Home', user_path(current_user.id), class: 'navbar-brand' %>
+  <ul class='nav navbar-nav'>
+    <h3><%= @user.first_name %>'s Playlists</h3>
+    <% @user.playlist_videos.each do |name, playlist| %>
+      <li><%= link_to name, playlist_path(name),
+        class: 'play_list' %></li>
+    <% end %>
+  </ul>
 </div>

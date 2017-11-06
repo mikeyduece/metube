@@ -22,3 +22,9 @@
 //     $(this).find('i').css('color','red').toggleClass('glyphicon-heart-empty').toggleClass('glyphicon-heart');
 //   });
 // });
+bootcards.init({
+  offCanvasBackdrop: true,
+  offCanvasHideOnMainClick: true,
+  enableTabletPortraitMode: true,
+  disableRubberBanding: true
+});
