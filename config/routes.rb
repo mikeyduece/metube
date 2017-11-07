@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :favorites
   resources :videos
 
+  get 'about', to: 'welcome#show'
   delete 'logout', to: 'sessions#destroy'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')

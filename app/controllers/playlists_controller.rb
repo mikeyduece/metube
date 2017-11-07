@@ -4,6 +4,7 @@ class PlaylistsController < ApplicationController
     playlists = current_user.playlists.where(name: params[:id])
     @playlist = Playlist.videos(playlists)
   end
+
   def new
     @playlist = Playlist.new
   end
