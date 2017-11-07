@@ -31,7 +31,7 @@ feature 'User' do
       fill_in('q', with: 'firefly')
       click_on 'submit'
 
-      expect(page).to have_css('.vid_sample', count: 50)
+      expect(page).to have_css('.img-sample', count: 46)
     end
   end
 end
