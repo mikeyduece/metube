@@ -1,5 +1,4 @@
 <button type="button" class='bmf-modalButton' data-toggle='modal' data-target='#modalPlaylist'>Play All</button>
-<% require 'pry'; binding.pry %>
 <% @playlist.each_with_index do |list, index| %>
   <%= image_tag list.img_high, class: 'img-responsive center-block' %>
   <!-- Trigger the modal with a button -->

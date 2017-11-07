@@ -89,15 +89,15 @@ function onYouTubeIFrameReady() {
 function onPlayerReady(event) {
   event.target.playVideo();
   //bind events
-  var playbutton = document.getElementById('play-button');
-  playButton.addEventListent('click', function() {
-    play.playVideo();
-  });
-
-  var pauseButton = document.getElementById('pause-button');
-  pauseBtton.addEventListener('click', function() {
-    player.pauseVideo();
-  });
+  // var playbutton = document.getElementById('play-button');
+  // playButton.addEventListent('click', function() {
+  //   play.playVideo();
+  // });
+  //
+  // var pauseButton = document.getElementById('pause-button');
+  // pauseBtton.addEventListener('click', function() {
+  //   player.pauseVideo();
+  // });
 };
 
 function onPlayerStateChange(event)
