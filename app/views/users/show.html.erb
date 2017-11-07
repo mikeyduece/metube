@@ -1,3 +1,3 @@
-<% current_user.playlist_videos.keys.each do |name| %>
+<% current_user.playlist_names.each do |name| %>
   <li><%= link_to name, playlist_path(name) %></li>
 <% end %>

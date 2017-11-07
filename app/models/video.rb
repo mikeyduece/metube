@@ -6,20 +6,9 @@ class Video < ApplicationRecord
 
   validates :video_id, uniqueness: true, presence: true
 
-  before_destroy :delete_playlist
-  before_destroy :delete_favorite
 
   def self.search_videos(vid)
-    VideoService.search_videos(vid)
+    VideoService.search_videos(vid).compact!
   end
 
-  private
-
-    def delete_playlist
-      Playlist.where(video_id: :id).delete
-    end
-
-    def delete_favorite
-      Favorite.where(video_id: :id).delete
-    end
 end

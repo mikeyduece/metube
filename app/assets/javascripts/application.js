@@ -63,6 +63,7 @@ bootcards.init({
 //     };
 //
 // })($);
+// Try usind data-id as the target id for the button close!!!
 
 
 $(document).ready(function(){

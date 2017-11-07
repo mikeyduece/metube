@@ -1,8 +1,8 @@
+<button type="button" class='bmf-modalButton' data-toggle='modal' data-target='#myModak<%= index + 1 %>'>Play All</button>
 <% @playlist.each_with_index do |list, index| %>
   <%= image_tag list.img_high, class: 'img-responsive center-block' %>
   <!-- Trigger the modal with a button -->
-  <button type="button" class="bmf-modalButton" data-toggle="modal" data-target="#myModal<%= index + 1 %>">Open Modal</button>
-  <%# <%= link_to image_tag(list.img_high), '#myModal', class: 'img-responsive center-block', data: {toggle: 'modal', target: "#myModal#{index + 1}"}  %> %>
+  <button type="button" class="bmf-modalButton" data-toggle="modal" data-target="#myModal<%= index + 1 %>">Play</button>
 
   <footer>
 
@@ -16,7 +16,7 @@
               <button type="button" class="close" data-dismiss="modal" aria-label='Close' ><span aria-hidden="true">&times;</span></button>
             </div>
             <div class='embed-responsive embed-responsive-16by9'>
-             <iframe id='player' class='embed-responsive-item' src="https://youtube.com/embed/<%= list.video_id %>?rel=0&enablejsapi=1" allowFullScreen='true' frameborder="0"></iframe>
+              <iframe id='player' class='embed-responsive-item' src="https://youtube.com/embed/<%= list.video_id %>?rel=0&enablejsapi=1" allowFullScreen='true' frameborder="0"></iframe>
             </div>
           </div>
         </div>

@@ -16,7 +16,7 @@ class VideoService
   def self.search_videos(vid)
     vids = YoutubeService.search_videos(vid)
     vids[:items].map do |attrs|
-      attrs[:id][:videoId] == "" ? nil : VideoService.new(attrs)
+      !attrs[:id][:videoId].present? ? nil : VideoService.new(attrs)
     end
   end
 
