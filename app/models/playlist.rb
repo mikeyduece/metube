@@ -17,7 +17,6 @@ class Playlist < ApplicationRecord
   end
 
   def self.videos(vids)
-    # vids.map {|vid| Video.find(vid.video_id)}
     videos = pluck(:video_id)
     Video.where(id: videos)
   end

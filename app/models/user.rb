@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_many :playlists
   has_many :videos, through: :playlists
   has_many :favorites
-  has_many :videos, through: :favorites
+  # has_many :videos, through: :favorites
 
   validates :name, uniqueness: true
   validates :first_name, uniqueness: true
@@ -30,13 +30,9 @@ class User < ApplicationRecord
   def playlist_names
     playlists.pluck('DISTINCT name')
   end
-  # def grouped_lists
-  #   playlists.group_by(&:name)
-  # end
-  #
-  # def playlist_videos
-  #   grouped_lists.each_pair do |name, playlists|
-  #     playlists.map! {|playlist| Video.find(playlist.video_id)}
-  #   end
-  # end
+
+  def playlist_videos(name)
+    video_ids = playlists.pluck(:video_id)
+    Video.where(id: video_ids)
+  end
 end
