@@ -29,8 +29,6 @@ bootcards.init({
   disableRubberBanding: true
 });
 
-
-
 $(document).ready(function(){
   $("#myModal").bmdIframe();
 });
