@@ -1,58 +1,59 @@
 <html class'video-index-bg'>
-<div class="container-fluid">
-  <% @videos.each do |video| %>
-  <div class="row-fluid">
-      <div class='col-lg-4 col-md-4 col-sm-4 vid_sample'>
-        <div class='card card-inverse'>
-          <div class='card-block h-100'>
-            <div class='mx-auto d-block img-responsive center-block vid_image'>
+  <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+  </div>
+  <div class="container-fluid">
+    <% @videos.each do |video| %>
+      <div class="row-fluid">
+        <div class='col-lg-4 col-md-4 col-sm-4 vid_sample'>
+          <div class='card card-inverse'>
+            <div class='card-block h-100'>
+              <div class='mx-auto d-block img-responsive center-block vid_image'>
                 <% if video.img_high %>
                   <%= image_tag video.img_high, class: 'img-responsive img-sample' %>
                 <% else %>
                   <%= image_tag video.img_default, class: 'img-responsive img-sample' %>
                 <% end %>
-            </div>
-
-            <div class='card-title text-center vid_title'><%= video.title %></div>
-            <div class='card-subtitle mb-2 text-muted text-center vid_desc'><%= video.description %></div>
-
-            <%= form_tag :videos, {action: 'create'} do %>
-              <div class='row'>
-                <div class='col-sm-12'>
-                  <%= hidden_field_tag :etag, video.etag %>
-                  <%= hidden_field_tag :video_id, video.video_id %>
-                  <%= hidden_field_tag :img_high, video.img_high%>
-                  <%= hidden_field_tag :img_default, video.img_default %>
-                  <%= hidden_field_tag :title, video.title %>
-                  <%= hidden_field_tag :published_at, video.published_at %>
-                  <%= hidden_field_tag :description, video.description %>
-                  <%= button_tag type: 'submit', class: "glyphicon glyphicon-heart-empty" do %>
-                  <% end %>
-                </div>
               </div>
-            <% end %>
+
+              <div class='card-title text-center vid_title'><%= video.title %></div>
+              <div class='card-subtitle mb-2 text-muted text-center vid_desc'><%= video.description %></div>
+
+              <%= form_tag :videos, {action: 'create'} do %>
+                <div class='row'>
+                  <div class='col-sm-12'>
+                    <%= hidden_field_tag :etag, video.etag %>
+                    <%= hidden_field_tag :video_id, video.video_id %>
+                    <%= hidden_field_tag :img_high, video.img_high %>
+                    <%= hidden_field_tag :img_default, video.img_default %>
+                    <%= hidden_field_tag :title, video.title %>
+                    <%= hidden_field_tag :published_at, video.published_at %>
+                    <%= hidden_field_tag :description, video.description %>
+                    <%= button_tag type: 'submit', class: "glyphicon glyphicon-heart-empty" do %>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
 
               <%= form_tag :playlists, {action: 'create'} do %>
-                  <%= hidden_field_tag :etag, video.etag %>
-                  <%= hidden_field_tag :video_id, video.video_id %>
-                  <%= hidden_field_tag :img_high, video.img_high%>
-                  <%= hidden_field_tag :img_default, video.img_default %>
-                  <%= hidden_field_tag :title, video.title %>
-                  <%= hidden_field_tag :published_at, video.published_at %>
-                  <%= hidden_field_tag :description, video.description %>
-                  <%= hidden_field_tag :user_id, current_user.id %>
+                <%= hidden_field_tag :etag, video.etag %>
+                <%= hidden_field_tag :video_id, video.video_id %>
+                <%= hidden_field_tag :img_high, video.img_high %>
+                <%= hidden_field_tag :img_default, video.img_default %>
+                <%= hidden_field_tag :title, video.title %>
+                <%= hidden_field_tag :published_at, video.published_at %>
+                <%= hidden_field_tag :description, video.description %>
+                <%= hidden_field_tag :user_id, current_user.id %>
 
-                <%= collection_select :playlist, :name, current_user.playlists.select('distinct name'), :name, :name,  {class: 'dropdown-item', onsubmit: 'this.form.submit()'}  %>
+                <%= collection_select :playlist, :name, current_user.playlists.select('DISTINCT name'), :name, :name,  {class: 'dropdown-item', onsubmit: 'this.form.submit()'} %>
                 <%= submit_tag 'Add',  method: 'post' %>
                 <%= link_to 'Create Playlist', new_playlist_path(etag: video.etag, video_id: video.video_id, user_id: current_user.id,
                                                                  img_high: video.img_high, img_default: video.img_default,
                                                                  title: video.title, description: video.description), class: 'dropdown-item' %>
-              <% end %>
+                                                             <% end %>
 
+            </div>
           </div>
         </div>
+      <% end %>
       </div>
-  <% end %>
   </div>
-</div>
-

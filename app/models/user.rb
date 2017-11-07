@@ -27,13 +27,16 @@ class User < ApplicationRecord
     user
   end
 
-  def grouped_lists
-    playlists.group_by(&:name)
+  def playlist_names
+    playlists.pluck('DISTINCT name')
   end
-
-  def playlist_videos
-    grouped_lists.each_pair do |name, playlists|
-      playlists.map! {|playlist| Video.find(playlist.video_id)}
-    end
-  end
+  # def grouped_lists
+  #   playlists.group_by(&:name)
+  # end
+  #
+  # def playlist_videos
+  #   grouped_lists.each_pair do |name, playlists|
+  #     playlists.map! {|playlist| Video.find(playlist.video_id)}
+  #   end
+  # end
 end

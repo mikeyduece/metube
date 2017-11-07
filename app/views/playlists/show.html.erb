@@ -1,15 +1,28 @@
-<div class='container-fluid'>
-  <% @playlist.each do |list| %>
-  <div class='row-fluid'>
-      <div class='col-sm-4 col-md-4 col-lg-4'>
-        <div class='card card-inverse'>
-          <div class='card-block h-100'>
-            <%= image_tag list.img_high, class: 'img-responsive center-block' %>
-            <h4 class='card-title text-center'><%= list.title %></h4>
-            <p class='card-subtitle mb-2 text-muted text-center'><%= list.description %></p>
+<button type="button" class='bmf-modalButton' data-toggle='modal' data-target='#myModak<%= index + 1 %>'>Play All</button>
+<% @playlist.each_with_index do |list, index| %>
+  <%= image_tag list.img_high, class: 'img-responsive center-block' %>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="bmf-modalButton" data-toggle="modal" data-target="#myModal<%= index + 1 %>">Play</button>
+
+  <footer>
+
+    <!-- Modal -->
+    <div id="myModal<%= index + 1 %>"  data-id='<%= list.video_id %>'class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content bmd-modalContent" >
+          <div class="modal-body">
+            <div class="close-button">
+              <button type="button" class="close" data-dismiss="modal" aria-label='Close' ><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class='embed-responsive embed-responsive-16by9'>
+              <iframe id='player' class='embed-responsive-item' src="https://youtube.com/embed/<%= list.video_id %>?rel=0&enablejsapi=1" allowFullScreen='true' frameborder="0"></iframe>
+            </div>
           </div>
         </div>
       </div>
-  <% end %>
-  </div>
-</div>
+    </div>
+  </footer>
+  <h4 class='card-title text-center'><%= list.title %></h4>
+  <p class='card-subtitle mb-2 text-muted text-center'><%= list.description %></p>
+<% end %>
