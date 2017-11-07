@@ -9,7 +9,7 @@ RSpec.describe Video, type: :model do
       vid = 'firefly'
       videos = Video.search_videos(vid)
 
-      expect(videos.count).to eq(50)
+      expect(videos.count).to eq(46)
       expect(videos[0]).to be_a(VideoService)
     end
   end
