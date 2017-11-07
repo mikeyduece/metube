@@ -53,4 +53,4 @@ function onPlayerReady(event) {
   event.target.playVideo();
 };
 
-function onPlayerStateChange(event);
+function onPlayerStateChange(event)
