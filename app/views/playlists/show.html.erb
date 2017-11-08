@@ -9,13 +9,13 @@
 
 
       <!-- Modal -->
-      <div id="myModal<%= index + 1 %>"  data-id='<%= list.video_id %>'class="modal fade" role="dialog">
+      <div id="myModal<%= index + 1 %>"  data-id='<%= list.video_id %>'class="modal fade videoModal" role="dialog">
         <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content bmd-modalContent" >
             <div class="modal-body modal-header">
               <div class="close-button">
-                <button type="button" class="close" data-dismiss="modal" aria-label='Close' ><span aria-hidden="true">&times;</span></button>
+                <button id='single' type="button" class="close fancybox-close" data-dismiss="modal" aria-label='Close' ><span aria-hidden="true">&times;</span></button>
               </div>
               <div class='embed-responsive embed-responsive-16by9'>
                 <iframe id='player' class='embed-responsive-item' src="https://youtube.com/embed/<%= list.video_id %>?rel=0&enablejsapi=1" allowFullScreen='true' frameborder="0"></iframe>
@@ -40,7 +40,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label='Close' ><span aria-hidden="true">&times;</span></button>
         </div>
         <div class='embed-responsive embed-responsive-16by9'>
-          <iframe id='player' class='embed-responsive-item' src="https://youtube.com/embed/<%= first_playlist_video %>?rel=0&playlist=<%= rest_of_vids %>&enablejsapi=1" allowFullScreen='true' frameborder="0"></iframe>
+          <iframe class='embed-responsive-item' src="https://youtube.com/embed/<%= first_playlist_video %>?rel=0&playlist=<%= rest_of_vids %>&enablejsapi=1" allowFullScreen='true' frameborder="0"></iframe>
         </div>
       </div>
     </div>

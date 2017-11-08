@@ -35,4 +35,10 @@ class User < ApplicationRecord
     video_ids = playlists.where(name: name).pluck(:video_id)
     Video.where(id: video_ids)
   end
+
+  def favs
+    ids = favorites.pluck(:video_id)
+    Video.where(id: ids)
+  end
+
 end
