@@ -9,6 +9,6 @@ module PlaylistHelper
   end
 
   def rest_of_vids
-    playlist_video_ids[1..-1].join(',')
+    playlist_video_ids[1..-1].join(',') unless playlist_video_ids.empty?
   end
 end

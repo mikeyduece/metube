@@ -16,8 +16,12 @@ class Playlist < ApplicationRecord
     playlist
   end
 
-  def self.videos(vids)
-    videos = pluck(:video_id)
-    Video.where(id: videos)
+  def self.user_list(name, user)
+    Playlist.where(name: name, user_id: user)
   end
+
+  # def self.videos(vids)
+  #   videos = pluck(:video_id)
+  #   Video.where(id: videos)
+  # end
 end

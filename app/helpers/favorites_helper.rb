@@ -9,7 +9,6 @@ module FavoritesHelper
   end
 
   def rest_of_favs
-    favorite_video_ids[1..-1].join(',')
+    favorite_video_ids[1..-1].join(',') unless favorite_video_ids.empty?
   end
-
 end

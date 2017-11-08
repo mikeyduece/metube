@@ -16,6 +16,8 @@
 /node_modules
 /yarn-error.log
 
+/coverage/
+
 /spec/cassettes
 .byebug_history
 

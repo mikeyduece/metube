@@ -1,11 +1,18 @@
 class FavoritesController < ApplicationController
 
   def index
-    if current_user.favorites.nil?
-      flash[:message] = "Go Favorite Something!"
-      redirect_to videos_path
+    @favorites = current_user.favs
+    if @favorites.empty?
+      render file: '/public/410'
     else
-      @favorites = current_user.favs
+      render :index
     end
+  end
+
+  def destroy
+    favorite = Favorite.find_by_video_id(params[:id])
+    favorite.delete
+    flash[:message] = "#{params[:title]} has been unfavorited!"
+    redirect_to favorites_path
   end
 end

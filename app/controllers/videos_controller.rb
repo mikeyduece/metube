@@ -28,7 +28,4 @@ class VideosController < ApplicationController
       }
     end
 
-    def vid_params
-      params.require(:video).permit(:etag, :video_id, :img_high, :img_default, :title, :published_at, :description)
-    end
 end

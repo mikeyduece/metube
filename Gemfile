@@ -53,6 +53,7 @@ group :development, :test do
   gem "factory_bot_rails", "~> 4.0"
   gem 'vcr'
   gem 'webmock'
+  gem 'simplecov'
 
 end
 

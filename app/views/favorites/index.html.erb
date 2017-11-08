@@ -1,5 +1,5 @@
-<% if @favorites.nil? %>
-  <h3>Go Favorite Some Videos!</h3>
+<% if @favorites.empty? %>
+  <h2>You haven't favorited anything yet!'</h2>
 <% else %>
   <button type="button" class='bmf-modalButton' data-toggle='modal' data-target='#modalPlaylist'>Play All</button>
 
@@ -30,9 +30,11 @@
         <h4 class='card-title text-center'><%= list.title %></h4>
         <p class='card-subtitle mb-2 text-muted text-center'><%= list.description %></p>
       </div>
+      <div>
+        <button type="submit" class='delete-button'><%= link_to 'Unfavorite', favorite_path(id: list.id, title: list.title, video_id: list.video_id), method: 'delete' %></button>
+      </div>
     <% end %>
   </div>
-
 
   <div id="modalPlaylist"  data-id='playlist'class="modal fade" role="dialog">
     <div class="modal-dialog">

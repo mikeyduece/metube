@@ -17,11 +17,11 @@
 //= require bootstrap-sprockets
 //= require_tree .
 // import { apiKey } from './helper.js'
-// $(function($) {
-//   $(document).on('click', '#favorite', function(event) {
-//     $(this).find('i').css('color','red').toggleClass('glyphicon-heart-empty');
-//     //   });
-// });
+$(function($) {
+  $(document).on('click', '#favorite', function(event) {
+    $(this).find('i').css('color','red').toggleClass('glyphicon-heart-empty');
+      });
+});
 bootcards.init({
   offCanvasBackdrop: true,
   offCanvasHideOnMainClick: true,
@@ -55,3 +55,7 @@ function onPlayerReady(event) {
 
 function onPlayerStateChange(event)
 
+$('[id^=myModal]').on('hidden.bs.modal', function(event) {
+  console.log(player);
+  event.target.stopVideo();
+});

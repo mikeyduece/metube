@@ -8964,5 +8964,6 @@ input:focus ~ .icon {
 /* line 229, /Users/mikeheft/turing/mod3/projects/metube/app/assets/stylesheets/application.scss */
 .modal {
   top: 20%;
-  left: 32.9%;
+  left: 25%;
+  right: 25%;
 }
