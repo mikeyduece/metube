@@ -13,6 +13,7 @@
   </head>
 
   <body style='background-color: black;'>
+
     <nav class='navbar navbar-inverse'>
       <div  class='container-fluid'>
         <div class='navbar-header'>
@@ -20,14 +21,14 @@
         </div>
         <% if current_user %>
           <ul class='nav navbar-nav'>
-            <li class='dropdown'></li>
-            <a class='dropdown-toggle' data-toggle='dropdown' href="#">Playlists
-              <span class='carat'></span></a>
-            <ul class='dropdown-menu'>
-              <% current_user.playlist_names.each do |name| %>
-                <li><%= link_to name, playlist_path(name) %></li>
-              <% end %>
-            </ul>
+            <li class='dropdown'>
+              <a class='dropdown-toggle' data-toggle='dropdown' href="/">Playlists<span class='caret'></span></a>
+              <ul class='dropdown-menu'>
+                <% current_user.playlist_names.each do |name| %>
+                  <li><%= link_to name, playlist_path(name) %></li>
+                <% end %>
+              </ul>
+            </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li>
@@ -50,11 +51,16 @@
                 <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
               </button>
             </li>
-          <% end %>
           </ul>
       </div>
+    <% end %>
     </nav>
     <%= yield %>
+    <script>
+      $(document).ready(function () {
+        $('.dropdown-toggle').dropdown();
+      });
+    </script>
 
   </body>
 </html>
