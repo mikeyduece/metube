@@ -72,13 +72,6 @@
 //   height: 70px;
 // }
 //
-#userImage {
-  max-width: 3em;
-  max-height: 3em;
-  display: inline-block;
-  vertical-align: middle;
-  padding-top: 0.75em;
-}
 
 .search-box {
   float: right;
@@ -224,3 +217,10 @@ input:focus ~ .icon {
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
+#userImage {
+  max-width: 3em;
+  max-height: 3em;
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 0.75em;
+}

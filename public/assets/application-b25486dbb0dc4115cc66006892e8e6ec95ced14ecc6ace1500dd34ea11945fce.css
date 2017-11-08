@@ -20,6 +20,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 /* line 9, /Users/mikeheft/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/_normalize.scss */
 html {
   font-family: sans-serif;
@@ -8779,7 +8780,89 @@ button.close {
     display: none !important;
   }
 }
-/*  */
+/* line 32, /Users/mikeheft/turing/mod3/projects/metube/app/assets/stylesheets/application.scss */
+.img-sample {
+  width: 100%;
+}
+
+/* line 36, /Users/mikeheft/turing/mod3/projects/metube/app/assets/stylesheets/application.scss */
+.col-md-4 {
+  margin-bottom: 5px;
+}
+
+/* line 76, /Users/mikeheft/turing/mod3/projects/metube/app/assets/stylesheets/application.scss */
+#userImage {
+  max-width: 3em;
+  max-height: 3em;
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 0.75em;
+}
+
+/* line 84, /Users/mikeheft/turing/mod3/projects/metube/app/assets/stylesheets/application.scss */
+.search-box {
+  float: right;
+  height: 40px;
+  position: relative;
+  margin: 11px 15px;
+}
+
+/* line 93, /Users/mikeheft/turing/mod3/projects/metube/app/assets/stylesheets/application.scss */
+.search-box input,
+.search-box .icon {
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
+}
+
+/* line 98, /Users/mikeheft/turing/mod3/projects/metube/app/assets/stylesheets/application.scss */
+input {
+  text-indent: 15px;
+  height: 40px;
+  z-index: 2;
+  outline: none;
+  color: #999;
+  background: transparent;
+  border: 1px solid #343434;
+  border-radius: 5px;
+  width: 150px;
+  -webkit-transition-timing-function: cubic-bezier(0.3, 1.5, 0.6, 1);
+          transition-timing-function: cubic-bezier(0.3, 1.5, 0.6, 1);
+}
+
+/* line 111, /Users/mikeheft/turing/mod3/projects/metube/app/assets/stylesheets/application.scss */
+.search-box input:focus {
+  color: #333;
+  border-color: #343434;
+  width: 200px;
+}
+
+/* line 117, /Users/mikeheft/turing/mod3/projects/metube/app/assets/stylesheets/application.scss */
+input:focus ~ .icon {
+  opacity: 1;
+  z-index: 3;
+  color: #FFFFFF;
+}
+
+/* line 123, /Users/mikeheft/turing/mod3/projects/metube/app/assets/stylesheets/application.scss */
+.search-box .icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40px;
+  text-align: center;
+  line-height: 40px;
+  z-index: 1;
+  cursor: pointer;
+  opacity: .5;
+}
+
+/* line 136, /Users/mikeheft/turing/mod3/projects/metube/app/assets/stylesheets/application.scss */
+.img-sample {
+  max-height: 50vmin;
+  max-width: 50vmax;
+}
+
 /* line 144, /Users/mikeheft/turing/mod3/projects/metube/app/assets/stylesheets/application.scss */
 .heart-frame {
   border-color: transparent;
@@ -8787,8 +8870,8 @@ button.close {
 }
 
 /* line 149, /Users/mikeheft/turing/mod3/projects/metube/app/assets/stylesheets/application.scss */
-.card-img-top .img-responsive {
-  max-width: 10vw;
+.img-responsive {
+  max-width: 25vmax;
 }
 
 /* line 153, /Users/mikeheft/turing/mod3/projects/metube/app/assets/stylesheets/application.scss */
@@ -8865,4 +8948,15 @@ button.close {
 /* line 212, /Users/mikeheft/turing/mod3/projects/metube/app/assets/stylesheets/application.scss */
 .model-backdrop {
   opacity: 0.0 !important;
+}
+
+/* line 217, /Users/mikeheft/turing/mod3/projects/metube/app/assets/stylesheets/application.scss */
+.modal-dialog {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 222, /Users/mikeheft/turing/mod3/projects/metube/app/assets/stylesheets/application.scss */
+.modal-body {
+  padding: 0;
 }
