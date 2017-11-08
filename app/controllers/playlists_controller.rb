@@ -1,8 +1,7 @@
 class PlaylistsController < ApplicationController
 
   def show
-    playlists = current_user.playlists.where(name: params[:id])
-    @playlist = Playlist.videos(playlists)
+    @playlist = current_user.playlist_videos(params[:id])
   end
 
   def new
