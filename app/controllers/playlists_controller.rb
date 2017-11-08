@@ -16,4 +16,11 @@ class PlaylistsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def destroy
+    playlists = Playlist.user_list(params[:id], current_user.id)
+    flash[:notice] = "You have deleted #{playlists[0].name}."
+    playlists.delete_all
+    redirect_to user_path(current_user)
+  end
+
 end
