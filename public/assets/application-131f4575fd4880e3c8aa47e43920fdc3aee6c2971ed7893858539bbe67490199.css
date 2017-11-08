@@ -8967,3 +8967,8 @@ input:focus ~ .icon {
   left: 25%;
   right: 25%;
 }
+
+/* line 238, /Users/mikeheft/turing/mod3/projects/metube/app/assets/stylesheets/application.scss */
+.btn-secondary {
+  width: .25em;
+}
