@@ -17,7 +17,7 @@ describe 'User' do
       fill_in('Playlist Name', with: 'Best Show Ever')
       click_on('Create')
 
-      expect(current_path).to eq(user_path(user.id))
+      expect(current_path).to eq(playlist_path(user.playlists[0].name))
       expect(user.playlists.count).to eq(1)
       expect(user.playlists[0].name).to eq('Best Show Ever')
       expect(user.playlists[0]).to be_a(Playlist)

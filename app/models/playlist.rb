@@ -1,6 +1,6 @@
 class Playlist < ApplicationRecord
   belongs_to :user, optional: true
-  belongs_to :video, optional: true, dependent: :destroy
+  belongs_to :video, optional: true#, dependent: :destroy
 
   def self.add_to_playlist(video, user, name)
     playlist = Playlist.where(yt: video.video_id).first
@@ -20,8 +20,4 @@ class Playlist < ApplicationRecord
     Playlist.where(name: name, user_id: user)
   end
 
-  # def self.videos(vids)
-  #   videos = pluck(:video_id)
-  #   Video.where(id: videos)
-  # end
 end
