@@ -16,17 +16,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-// html, body {
-//   background-color: black;
-//   padding: 0;
-// }
-//
-// div {
-//   border-style: solid;
-//   border-color: red;
-//   border-width: thin;
-//   background-color: black;
-// }
 
 .img-sample {
   width: 100%;
@@ -35,43 +24,6 @@
 .col-md-4 {
   margin-bottom: 5px;
 }
-
-// .card {
-//   border-style: solid;
-
-//   border-color: red;
-
-//   border-width: thin;
-
-//
-//}
-
-// .row {
-//   margin-left: 3%;
-
-//   margin-right: 3%;
-
-//
-//}
-
-// .vid_title {
-//   height: 50px;
-
-//   text-align: center;
-
-//   padding-left: 5%;
-
-//   padding-right: 5%;
-
-//   font-weight: bold;
-
-//* / */
-// }
-//
-// .vid_desc {
-//   height: 70px;
-// }
-//
 
 .search-box {
   float: right;
@@ -129,8 +81,6 @@ input:focus ~ .icon {
   max-height: 50vmin;
 
   max-width: 50vmax;
-
-
 }
 
 .heart-frame {
@@ -226,14 +176,32 @@ input:focus ~ .icon {
 }
 
 .modal {
-  // position: absolute;
   top: 20%;
   left: 25%;
   right: 25%;
-  // margin-top: -10%;
-  // margin-left: -45%;
 }
 
 .btn-secondary {
   width: .25em;
+}
+
+span.glyphicon-play {
+  font-size: 3em;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+
+a.glyphicon-remove-circle {
+  font-size: 3em;
+  color: red;
+  float: right;
+}
+
+body {
+  background-color: rgba(0,0,0,0);
+}
+
+h5.card-title {
+  color: black;
+  font-size: 1.5em;
 }

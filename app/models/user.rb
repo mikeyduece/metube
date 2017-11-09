@@ -41,4 +41,12 @@ class User < ApplicationRecord
     Video.where(id: ids)
   end
 
+  def user_list(yt_id, user)
+    playlists.where(yt: yt_id, user_id: user).first
+  end
+
+  def video_name(yt_id)
+    Video.find_by_video_id(yt_id).title
+  end
+
 end
