@@ -10,7 +10,9 @@
         <div class='card'>
           <%= image_tag video.img_high, class: 'img-fluid' %>
           <div class='card-body'>
-            <h5 class='card-title text-center'><%= video.title %></h5>
+            <div>
+              <h5 class='card-title text-center'><%= video.title %></h5>
+            </div>
             <p class='card-text text-center'><%= video.description %></p>
             <!-- Trigger the modal with a button -->
             <span class="glyphicon glyphicon-play" data-toggle="modal" data-target="#myModal<%= index + 1 %>"></span>
@@ -35,7 +37,6 @@
             </div>
           </div>
         </div>
-
       </div>
     <% end %>
   </div>
