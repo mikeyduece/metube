@@ -1,12 +1,9 @@
 <button type="button" class='bmf-modalButton' data-toggle='modal' data-target='#modalPlaylist'>Play All</button>
 
 <div class='container'>
-
   <div class='row'>
     <% @playlist.each_with_index do |video, index| %>
       <div class='col-sm-4'>
-
-
         <div class='card'>
           <%= image_tag video.img_high, class: 'img-fluid' %>
           <div class='card-body'>

@@ -61,3 +61,14 @@ function onPlayerStateChange(event)
 $('button').on('click', function (iframe) {
       iframe.target.stopVideo();
 });
+
+$(function(){
+
+    $('#show').on('click',function(){
+        $('.card-reveal').slideToggle('slow');
+    });
+
+    $('.card-reveal .close').on('click',function(){
+        $('.card-reveal').slideToggle('slow');
+    });
+});

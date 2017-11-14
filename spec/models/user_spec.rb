@@ -45,5 +45,30 @@ RSpec.describe User, type: :model do
       expect(favorites[0].title).to eq(videos[0].title)
       expect(favorites).to_not include(videos[0])
     end
+
+    it '#user_list' do
+      user = create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      video = create(:video)
+      playlist = create(:playlist, video_id: video.id, yt: video.video_id, user_id: user.id, name: 'Firefly')
+
+      playlists = user.user_list(playlist.yt, user.id)
+
+      expect(playlists).to be_a(Playlist)
+      expect(playlists.name).to eq('Firefly')
+      expect(playlists.yt).to eq(video.video_id)
+      expect(playlists.user_id).to eq(user.id)
+    end
+
+    it '#video_name' do
+      user = create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      video = create(:video)
+      playlist = create(:playlist, video_id: video.id, yt: video.video_id, user_id: user.id, name: 'Firefly')
+
+      name = user.video_name(playlist.yt)
+
+      expect(name).to eq(video.title)
+    end
   end
 end
