@@ -15,8 +15,6 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
-@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
 
 
 .img-sample {
@@ -179,8 +177,9 @@ input:focus ~ .icon {
 
 .modal {
   top: 20%;
-  left: 25%;
-  right: 25%;
+  left: 50%;
+  right: 50%;
+  background: transparent;
 }
 
 .btn-secondary {
@@ -206,28 +205,4 @@ body {
 h5.card-title {
   color: black;
   font-size: 1.5em;
-}
-
-.card .card-reveal{
-    padding: 20px;
-    position: absolute;
-    background-color: #FFF;
-    width: 100%;
-    overflow-y: auto;
-    /*top: 0;*/
-    left:0;
-    bottom:0;
-    height: 100%;
-    z-index: 1;
-    display: none;
-}
-
-.card .card-reveal p{
-    color: rgba(0, 0, 0, 0.71);
-    margin:20px ;
-}
-
-.btn-custom{
-    background-color: transparent;
-    font-size:18px;
 }
