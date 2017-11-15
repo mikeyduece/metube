@@ -48,7 +48,8 @@ describe 'User' do
       within('#playlist_name', match: :first) do
         select('Best Show Ever')
       end
-      click_on('Add', match: :first)
+
+      page.find(:css, 'button.glyphicon-plus', match: :first).click
 
       expect(user.playlists.count).to eq(2)
       expect(user.playlists.last.name).to eq('Best Show Ever')

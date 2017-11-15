@@ -11,10 +11,10 @@ feature 'User' do
       fill_in(:q, with: 'bjj')
       click_on('submit')
 
-      within('.vid_sample', match: :first) do
-        expect(page).to have_css('.vid_title')
-        expect(page).to have_css('.vid_image')
-        expect(page).to have_css('.vid_desc')
+      within('.card', match: :first) do
+        expect(page).to have_css('.card-title')
+        expect(page).to have_css('.img-fluid')
+        expect(page).to have_css('.card-text')
       end
     end
   end

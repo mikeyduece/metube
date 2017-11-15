@@ -10,10 +10,10 @@ feature 'User' do
       fill_in('q', with: 'firefly')
       click_on 'submit'
 
-      expect(page).to have_css('.vid_sample')
-      expect(page).to have_css('.vid_title')
-      expect(page).to have_css('.vid_image')
-      expect(page).to have_css('.vid_desc')
+      expect(page).to have_css('.card')
+      expect(page).to have_css('.card-title')
+      expect(page).to have_css('.card-text')
+      expect(page).to have_css('.img-sample')
 
       user_vid = user.favorites
       find('button.glyphicon-heart-empty', match: :first).click
