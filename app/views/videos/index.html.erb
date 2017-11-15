@@ -15,7 +15,7 @@
               <div>
                 <h5 class='card-title text-center'><%= video.title %></h5>
               </div>
-              <p class='card-rext text-center'><%= video.description %></p>
+              <p class='card-text text-center'><%= video.description %></p>
               <span class='glyphicon gyphicon-play' data-toggle='modal' data-target='#myModal<%= index + 1 %>'></span>
 
               <%= form_tag :videos, {action: 'create'} do %>
