@@ -16,8 +16,5 @@ class Playlist < ApplicationRecord
     playlist
   end
 
-  def self.user_list(name, user)
-    Playlist.where(name: name, user_id: user)
-  end
 
 end

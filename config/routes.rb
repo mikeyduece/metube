@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :videos
 
   get 'about', to: 'welcome#show'
+  get 'logout', to: 'sessions#destroy'
   delete 'logout', to: 'sessions#destroy'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')

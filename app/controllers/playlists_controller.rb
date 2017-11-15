@@ -17,10 +17,10 @@ class PlaylistsController < ApplicationController
   end
 
   def destroy
-    playlists = Playlist.user_list(params[:id], current_user.id)
-    flash[:notice] = "You have deleted #{playlists[0].name}."
-    playlists.delete_all
-    redirect_to user_path(current_user)
+    playlist = current_user.user_list(params[:id], current_user.id)
+    flash[:notice] = "You have deleted #{current_user.video_name(params[:id])}."
+    playlist.delete
+    redirect_to playlist_path(playlist.name)
   end
 
 end

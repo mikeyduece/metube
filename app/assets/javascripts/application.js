@@ -39,6 +39,7 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
+var video = false;
 
 function onYouTubeIFrameReady() {
   player = new YT.Player('player', {
@@ -47,6 +48,7 @@ function onYouTubeIFrameReady() {
           'onStateChange': onPlayerStateChange
         }
   });
+  var iframe = document.getElementById("my-video");
 };
 
 function onPlayerReady(event) {
@@ -55,7 +57,8 @@ function onPlayerReady(event) {
 
 function onPlayerStateChange(event)
 
-$('[id^=myModal]').on('hidden.bs.modal', function(event) {
-  console.log(player);
-  event.target.stopVideo();
+
+$('button').on('click', function (iframe) {
+      iframe.target.stopVideo();
 });
+

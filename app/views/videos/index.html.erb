@@ -1,38 +1,35 @@
 <html class'video-index-bg'>
-  <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-  </div>
-  <div class="container-fluid">
-    <% @videos.each do |video| %>
-      <div class="row-fluid">
-        <div class='col-lg-4 col-md-4 col-sm-4 vid_sample'>
-          <div class='card card-inverse'>
-            <div class='card-block h-100'>
-              <div class='mx-auto d-block img-responsive center-block vid_image'>
-                <% if video.img_high %>
-                  <%= image_tag video.img_high, class: 'img-responsive img-sample' %>
-                <% else %>
-                  <%= image_tag video.img_default, class: 'img-responsive img-sample' %>
-                <% end %>
-              </div>
+  <div class='container'>
+    <div class='row'>
+      <% @videos.each_with_index do |video, index| %>
+        <div class='col-sm-4'>
+          <div class='card'>
 
-              <div class='card-title text-center vid_title'><%= video.title %></div>
-              <div class='card-subtitle mb-2 text-muted text-center vid_desc'><%= video.description %></div>
+
+            <% if video.img_high %>
+              <%= image_tag video.img_high, class: 'img-fluid img-sample' %>
+            <% else %>
+              <%= image_tag video.img_default, class: 'img-fluid img-sample' %>
+            <% end %>
+            <div class='card-body'>
+              <div>
+                <h5 class='card-title text-center'><%= video.title %></h5>
+              </div>
+              <p class='card-text text-center'><%= video.description %></p>
+              <span class='glyphicon gyphicon-play' data-toggle='modal' data-target='#myModal<%= index + 1 %>'></span>
 
               <%= form_tag :videos, {action: 'create'} do %>
-                <div class='row'>
-                  <div class='col-sm-12'>
-                    <%= hidden_field_tag :etag, video.etag %>
-                    <%= hidden_field_tag :video_id, video.video_id %>
-                    <%= hidden_field_tag :img_high, video.img_high %>
-                    <%= hidden_field_tag :img_default, video.img_default %>
-                    <%= hidden_field_tag :title, video.title %>
-                    <%= hidden_field_tag :published_at, video.published_at %>
-                    <%= hidden_field_tag :description, video.description %>
-                    <%= button_tag type: 'submit', class: "glyphicon glyphicon-heart-empty" do %>
-                    <% end %>
-                  </div>
-                </div>
+                <%= hidden_field_tag :etag, video.etag %>
+                <%= hidden_field_tag :video_id, video.video_id %>
+                <%= hidden_field_tag :img_high, video.img_high %>
+                <%= hidden_field_tag :img_default, video.img_default %>
+                <%= hidden_field_tag :title, video.title %>
+                <%= hidden_field_tag :published_at, video.published_at %>
+                <%= hidden_field_tag :description, video.description %>
+                <%= button_tag type: 'submit', class: "glyphicon glyphicon-heart-empty" do %>
+                <% end %>
               <% end %>
+
 
               <%= form_tag :playlists, {action: 'create'} do %>
                 <%= hidden_field_tag :etag, video.etag %>
@@ -44,16 +41,31 @@
                 <%= hidden_field_tag :description, video.description %>
                 <%= hidden_field_tag :user_id, current_user.id %>
 
-                <%= collection_select :playlist, :name, current_user.playlists.select('DISTINCT name'), :name, :name %>
-                  <input class='btn' type="submit" value="Add" />
-                <button class='btn btn-sm'><%= link_to 'Create Playlist', new_playlist_path(etag: video.etag, video_id: video.video_id, user_id: current_user.id,
-                                                                 img_high: video.img_high, img_default: video.img_default,
-                                                                 title: video.title, description: video.description) %></button>
-                                                             <% end %>
+                <%= collection_select :playlist, :name, current_user.playlists.select('DISTINCT name'), :name, :name, id: 'listSelect' %>
+                <%= button_tag '', method: 'post', type: 'submit', class: 'glyphicon glyphicon-plus' %>
+                  <%= link_to 'Create Playlist', new_playlist_path(etag: video.etag, video_id: video.video_id, user_id: current_user.id,
+                                                                   img_high: video.img_high, img_default: video.img_default,
+                                                                   title: video.title, description: video.description), class: 'btn btn-primary btn-xs gradient' %>
+              <% end %>
 
+              <div id="myModal<%= index + 1 %>"  data-id='<%= video.video_id %>'class="modal fade videoModal" role="dialog"> <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content bmd-modalContent" >
+                    <div class="close-button">
+                      <button id='single' type="button" class="close fancybox-close" data-dismiss="modal" aria-label='Close' ><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body modal-header">
+                      <div class='embed-responsive embed-responsive-16by9'>
+                        <iframe id='my-video' class='embed-responsive-item' src="https://youtube.com/embed/<%= video.video_id %>?rel=0&enablejsapi=1" allowFullScreen='true' frameborder="0"></iframe>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       <% end %>
-      </div>
+    </div>
   </div>
